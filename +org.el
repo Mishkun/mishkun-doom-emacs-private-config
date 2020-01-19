@@ -36,4 +36,9 @@
 (map! :leader
       (:prefix "o"
         :desc "Org agenda overview" "A" (lambda () "Open my configured agenda view" (interactive) (org-agenda nil "O"))
-        :desc "Org-brain" "B" #'org-brain-visualize))
+        :desc "Org-brain" "B" #'org-brain-visualize)
+     (:prefix "n"
+        ;; remove annoying deft keybinding
+        ;; TODO: remove this after https://github.com/hlissner/doom-emacs/pull/2390 is accepted to the upstream
+        "d" nil)
+)
