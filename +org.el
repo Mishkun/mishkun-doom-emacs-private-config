@@ -27,7 +27,7 @@
                       (org-agenda-start-day "-1d")
                       (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))))
           ;; PR-review requests
-          (todo "TODO" ((org-agenda-files '("~/org/review-pr.org"))
+          (todo "TODO|WAIT" ((org-agenda-files '("~/org/review-pr.org"))
                       (org-agenda-overriding-header "PR's to review:")))
           (tags-todo "-PRIORITY=\"A\"-pr-toread" ((org-agenda-overriding-header "Other tasks:")))
           ))))
