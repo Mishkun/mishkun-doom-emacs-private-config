@@ -11,9 +11,6 @@
                           ;; To-reads
                           (sequence "TOREAD(r)" "REVIEW(v)" "ARCHIV(a)")))
 
-;; Org-journal setup
-(setq org-journal-file-format
-      "%Y%m%d.org")
 
 ;; Org-agenda setup
 (setq org-agenda-files '("~/org" "~/org/projects"))
