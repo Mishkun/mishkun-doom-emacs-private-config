@@ -11,6 +11,10 @@
                           ;; To-reads
                           (sequence "TOREAD(r)" "REVIEW(v)" "ARCHIV(a)")))
 
+;; Mark the completion time of TODOs
+(setq org-log-done 'time)
+;; and also log time
+(setq org-log-done-with-time t)
 
 ;; Org-agenda setup
 (setq org-agenda-files '("~/org" "~/org/projects"))
