@@ -18,6 +18,7 @@
 
 ;; Org-agenda setup
 (setq org-agenda-files '("~/org" "~/org/projects"))
+;; Add my custom dashboard
 (setq org-agenda-custom-commands
       '(("O" "Overview"
          ;; TODo's with the A priority are shown on top. these i need to do in first place
