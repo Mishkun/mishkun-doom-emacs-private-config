@@ -30,9 +30,6 @@
 ;; Add my custom dashboard
 (setq org-agenda-custom-commands
       '(("O" "Overview"
-         ;; TODo's with the A priority are shown on top. these i need to do in first place
-         ((tags-todo "+PRIORITY=\"A\"" ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
-                                        (org-agenda-overriding-header "High-priority unfinished tasks:")))
           ;; Calendar agenda for time-bounded tasks
           (agenda "" ((org-agenda-span 8)
                       (org-agenda-start-day "-1d")
@@ -40,8 +37,7 @@
           ;; PR-review requests
           (todo "TODO|WAIT" ((org-agenda-files '("~/org/review-pr.org"))
                       (org-agenda-overriding-header "PR's to review:")))
-          (tags-todo "-PRIORITY=\"A\"-pr-toread" ((org-agenda-overriding-header "Other tasks:")))
-          ))))
+          (tags-todo "-PRIORITY=\"A\"-pr-toread" ((org-agenda-overriding-header "Other tasks:"))))))
 
 ;; deft setup
 (setq deft-directory "~/org/deft")
