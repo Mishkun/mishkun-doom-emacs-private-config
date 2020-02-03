@@ -51,6 +51,10 @@
         :desc "Org agenda overview" "A" (lambda () "Open my configured agenda view" (interactive) (org-agenda nil "O"))
         :desc "Org-brain" "B" #'org-brain-visualize)
      (:prefix "n"
-        :desc "Org agenda overview" "A" (lambda () "Open my configured agenda view" (interactive) (org-agenda nil "O"))
-       )
-)
+        :desc "Org agenda overview" "A" (lambda () "Open my configured agenda view" (interactive) (org-agenda nil "O"))))
+
+
+(map! :map org-mode-map
+      :localleader
+      (:prefix ("r" . "refile")
+               "s" #'org-sort))
