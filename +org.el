@@ -16,6 +16,12 @@
 ;; and also log time
 (setq org-log-done-with-time t)
 
+;; add yandex-tracker link abbrev
+(after! org
+  (pushnew! org-link-abbrev-alist
+          '("st" . "https://st.yandex-team.ru/%s")))
+
+
 ;; Org-agenda setup
 (setq org-agenda-files '("~/org" "~/org/projects"))
 ;; Add my custom dashboard
