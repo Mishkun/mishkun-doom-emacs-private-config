@@ -23,6 +23,8 @@
           '("st" . "https://st.yandex-team.ru/%s")))
 
 
+(setq org-export-with-toc nil)
+
 ;; Org-agenda setup
 (setq org-agenda-files '("~/org" "~/org/projects"))
 ;; Add my custom dashboard
