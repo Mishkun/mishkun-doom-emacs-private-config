@@ -15,6 +15,7 @@
 (setq org-log-done 'time)
 ;; and also log time
 (setq org-log-done-with-time t)
+(setq org-log-note-clock-out t)
 
 ;; add yandex-tracker link abbrev
 (after! org
