@@ -21,17 +21,18 @@
 ;; Add my custom dashboard
 (setq org-agenda-custom-commands
       '(("O" "Overview"
-          ;; Calendar agenda for time-bounded tasks
-          (agenda "" ((org-agenda-span 8)
+         ;; Calendar agenda for time-bounded tasks
+         ((agenda "" ((org-agenda-span 8)
                       (org-agenda-start-day "-1d")
                       (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))))
           ;; PR-review requests
           (todo "TODO|WAIT" ((org-agenda-files '("~/org/review-pr.org"))
                       (org-agenda-overriding-header "PR's to review:")))
-          (tags-todo "-PRIORITY=\"A\"-pr-toread" ((org-agenda-overriding-header "Other tasks:"))))))
+          (tags-todo "-PRIORITY=\"A\"-pr-toread" ((org-agenda-overriding-header "Other tasks:")))))))
 
 ;; deft setup
 (setq deft-directory "~/org/deft")
+
 ;; keybindings
 (map! :leader
       (:prefix "o"
