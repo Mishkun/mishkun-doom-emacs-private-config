@@ -2,15 +2,6 @@
 
 ;; Org configuration
 
-;; Keywords
-(setq org-todo-keywords '(
-                          ;; General TODOS
-                          (sequence "TODO(t)" "PROJ(p)" "STRT(s)" "WAIT(w)" "|" "DONE(d)" "KILL(k)")
-                          ;; Subtasks
-                          (sequence "[ ](T)" "[-](S)" "[?](W)" "|" "[X](D)")
-                          ;; To-reads
-                          (sequence "TOREAD(r)" "REVIEW(v)" "ARCHIV(a)")))
-
 ;; Mark the completion time of TODOs
 (setq org-log-done 'time)
 ;; and also log time
