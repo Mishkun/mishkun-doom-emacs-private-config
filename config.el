@@ -63,6 +63,8 @@
 
 (load! "+org.el")
 
+(setq lsp-haskell-process-path-hie "hie")
+
 ;; TAB in counsel buffer faster
 (map! :after counsel :map counsel-find-file-map
       [tab] #'ivy-alt-done
