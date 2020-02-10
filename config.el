@@ -67,7 +67,6 @@
 
 ;; TAB in counsel buffer faster
 (map! :after counsel :map counsel-find-file-map
-      [tab] #'ivy-alt-done
       "RET" #'ivy-alt-done)
 
 ;; FIXME this is before I figure out how to use .gpg
