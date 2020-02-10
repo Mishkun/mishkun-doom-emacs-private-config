@@ -39,6 +39,13 @@
 ;; deft setup
 (setq deft-directory "~/org/deft")
 
+;; org-roam setup
+(use-package! org-roam
+      :after org
+      :hook (org-mode . org-roam-mode)
+      :custom
+      (org-roam-directory "~/org/deft"))
+
 ;; keybindings
 (map! :leader
       (:prefix "o"
