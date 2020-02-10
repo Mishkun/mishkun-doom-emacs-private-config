@@ -20,15 +20,21 @@
 (setq org-agenda-files '("~/org" "~/org/projects"))
 ;; Add my custom dashboard
 (setq org-agenda-custom-commands
-      '(("O" "Overview"
+      `(("O" "Overview"
          ;; Calendar agenda for time-bounded tasks
          ((agenda "" ((org-agenda-span 8)
-                      (org-agenda-start-day "-1d")
+                      (org-agenda-start-day "0d")
                       (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))))
-          ;; PR-review requests
-          (todo "TODO|WAIT" ((org-agenda-files '("~/org/review-pr.org"))
-                      (org-agenda-overriding-header "PR's to review:")))
-          (tags-todo "-PRIORITY=\"A\"-pr-toread" ((org-agenda-overriding-header "Other tasks:")))))))
+          (todo "TODO|WAIT" ((org-agenda-skip-function '(org-agenda-skip-entry-if 'timestamp))
+                    (org-agenda-overriding-header "Unscheduled:")))))
+        ("P" "projects"
+         ,(list-projects (directory-files "~/org/projects" :match-regexp ".*\.org$")))))
+
+(defun list-projects (arg)
+    (mapcar (lambda (x)
+              `(todo "TODO|WAIT" ((org-agenda-files '(,x))
+                                  (org-agenda-overriding-header ,x))))
+            arg))
 
 ;; deft setup
 (setq deft-directory "~/org/deft")
