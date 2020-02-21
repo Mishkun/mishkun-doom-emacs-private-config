@@ -21,8 +21,7 @@
 
 (package! reverse-im)
 (package! org-roam
-  :pin "152c3cecdc4a9346fb68847becef0c9e1c4d4912"
-  :recipe (:host github :repo "jethrokuan/org-roam"))
+  :recipe (:host github :repo "jethrokuan/org-roam" :branch "develop"))
 
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;(package! some-package)
