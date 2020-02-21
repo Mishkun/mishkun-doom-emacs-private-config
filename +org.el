@@ -16,27 +16,29 @@
             '("pr" . "https://github.com/YandexClassifieds/mobile-autoru-client-android/pull/%s")))
 
 
+;; disable annoying Table of Content on export
 (setq org-export-with-toc nil)
 
 ;; Org-agenda setup
 (setq org-agenda-files '("~/org" "~/org/projects"))
 ;; Add my custom dashboard
+(defun list-projects (arg &rest params)
+    (mapcar (lambda (x)
+              `(todo "TODO|WAIT" ,(append `((org-agenda-files '(,x)) (org-agenda-overriding-header ,x))
+                                          params)))
+            arg))
+
 (setq org-agenda-custom-commands
       `(("O" "Overview"
          ;; Calendar agenda for time-bounded tasks
-         ((agenda "" ((org-agenda-span 8)
+         ,(append
+         '((agenda "" ((org-agenda-span 8)
                       (org-agenda-start-day "0d")
-                      (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))))
-          (todo "TODO|WAIT" ((org-agenda-skip-function '(org-agenda-skip-entry-if 'timestamp))
-                    (org-agenda-overriding-header "Unscheduled:")))))
-        ("P" "projects"
+                      (org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done)))))
+         (list-projects (directory-files "~/org/projects" :match-regexp ".*\.org$")
+                        '(org-agenda-skip-function '(org-agenda-skip-entry-if 'timestamp)))))
+        ("P" "Projects"
          ,(list-projects (directory-files "~/org/projects" :match-regexp ".*\.org$")))))
-
-(defun list-projects (arg)
-    (mapcar (lambda (x)
-              `(todo "TODO|WAIT" ((org-agenda-files '(,x))
-                                  (org-agenda-overriding-header ,x))))
-            arg))
 
 ;; deft setup
 (setq deft-directory "~/org/deft")
