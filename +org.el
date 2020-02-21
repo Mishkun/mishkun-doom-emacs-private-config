@@ -11,7 +11,9 @@
 ;; add yandex-tracker link abbrev
 (after! org
   (pushnew! org-link-abbrev-alist
-          '("st" . "https://st.yandex-team.ru/%s")))
+            '("st" . "https://st.yandex-team.ru/%s"))
+  (pushnew! org-link-abbrev-alist
+            '("pr" . "https://github.com/YandexClassifieds/mobile-autoru-client-android/pull/%s")))
 
 
 (setq org-export-with-toc nil)
