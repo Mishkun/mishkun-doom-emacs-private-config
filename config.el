@@ -65,6 +65,11 @@
 
 (setq lsp-haskell-process-path-hie "hie")
 
+;; Add vimish fast scroll to ivy
+(map! :after ivy :map ivy-minibuffer-map
+      "C-u" #'ivy-scroll-down-command
+      "C-d" #'ivy-scroll-up-command)
+
 ;; TAB in counsel buffer faster
 (map! :after counsel :map counsel-find-file-map
       "RET" #'ivy-alt-done)
