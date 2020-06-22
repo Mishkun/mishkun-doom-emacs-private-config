@@ -18,6 +18,19 @@
             '("download" . "file://~/org/.attach/%s")))
 
 
+;; Roam setup
+(setq org-roam-directory "~/org/deft")
+
+(defun open-roam-index ()
+  (interactive)
+  (find-file  (concat (file-name-as-directory org-roam-directory) "index.org")))
+
+;; Add roam keybinding to open index file
+(map! :map org-mode-map
+      :localleader
+      (:prefix ("m" . "roam")
+       "x" #'open-roam-index))
+
 ;; disable annoying Table of Content on export
 (setq org-export-with-toc nil)
 
