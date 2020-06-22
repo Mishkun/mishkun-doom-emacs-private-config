@@ -69,6 +69,10 @@
 (map! :after counsel :map counsel-find-file-map
       "RET" #'ivy-alt-done)
 
+;; My keyboard has combined SPC and Super in one key, so I keep closing windows
+;; with Super-W instead of moving them with SPC w l
+(map! :g "s-w" nil)
+
 ;; FIXME this is before I figure out how to use .gpg
 (add-to-list 'auth-sources '"~/.authinfo")
 
