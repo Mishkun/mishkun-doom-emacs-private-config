@@ -81,6 +81,5 @@
 ;; FIXME this is before I figure out how to use .gpg
 (add-to-list 'auth-sources '"~/.authinfo")
 
-;; Plantuml executable configuration to brew
-;;(setq plantuml-executable-path "/usr/local/bin/plantuml")
-;;(setq plantuml-default-exec-mode 'executable)
+;; Remove outdated default 50 max length
+(setq git-commit-summary-max-length 68)
