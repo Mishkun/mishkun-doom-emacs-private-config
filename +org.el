@@ -75,7 +75,9 @@
         :desc "Org agenda overview" "A" (lambda () "Open my configured agenda view" (interactive) (org-agenda nil "O"))
         :desc "Org-brain" "B" #'org-brain-visualize)
      (:prefix "n"
-        :desc "Org agenda overview" "A" (lambda () "Open my configured agenda view" (interactive) (org-agenda nil "O"))))
+      :desc "Org agenda overview" "A" (lambda () "Open my configured agenda view" (interactive) (org-agenda nil "O"))
+      (:prefix "r"
+       :desc "Roam index" "x" #'open-roam-index)))
 
 
 (map! :map org-mode-map
