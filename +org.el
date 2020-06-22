@@ -13,7 +13,9 @@
   (pushnew! org-link-abbrev-alist
             '("st" . "https://st.yandex-team.ru/%s"))
   (pushnew! org-link-abbrev-alist
-            '("pr" . "https://github.com/YandexClassifieds/mobile-autoru-client-android/pull/%s")))
+            '("pr" . "https://github.com/YandexClassifieds/mobile-autoru-client-android/pull/%s"))
+  (pushnew! org-link-abbrev-alist
+            '("download" . "file://~/org/.attach/%s")))
 
 
 ;; disable annoying Table of Content on export
