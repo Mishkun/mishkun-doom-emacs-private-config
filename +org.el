@@ -70,5 +70,10 @@
 
 (map! :map org-mode-map
       :localleader
+      ;; Add sort to kb
       (:prefix ("r" . "refile")
-               "s" #'org-sort))
+       "s" #'org-sort)
+      ;; rebind m c c to toggle clock instead of canceling
+      (:prefix ("c" . "clock")
+       "c" #'+org/toggle-clock
+       "C" #'org-clock-cancel))
