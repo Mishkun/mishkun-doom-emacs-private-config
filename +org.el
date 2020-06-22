@@ -31,8 +31,18 @@
       (:prefix ("m" . "roam")
        "x" #'open-roam-index))
 
+
+;; add intelij-like items swap
+(map! :map org-mode-map
+      "s-<up>" #'org-move-subtree-up
+      "s-<down>" #'org-move-subtree-down)
+
 ;; disable annoying Table of Content on export
 (setq org-export-with-toc nil)
+
+;; enable auto-fill in org-mode
+(add-hook 'org-mode-hook 'turn-on-auto-fill)
+
 
 ;; Org-agenda setup
 (setq org-agenda-files '("~/org" "~/org/projects"))
