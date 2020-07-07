@@ -23,6 +23,7 @@
 ;; Roam setup
 (setq org-roam-directory "~/org/deft")
 
+(setq org-roam-index-file "~/org/deft/index.org")
 (setq org-roam-tag-sources '(prop first-directory))
 (setq org-roam-capture-templates
       '(("d" "default" plain #'org-roam-capture--get-point "%?" :file-name "%<%Y%m%d%H%M%S>-${slug}" :head "#+title: ${title}" :unnarrowed t)
