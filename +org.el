@@ -15,11 +15,24 @@
   (pushnew! org-link-abbrev-alist
             '("pr" . "https://github.com/YandexClassifieds/mobile-autoru-client-android/pull/%s"))
   (pushnew! org-link-abbrev-alist
-            '("download" . "file://~/org/.attach/%s")))
+            '("download" . "file://~/org/.attach/%s"))
+  (pushnew! org-capture-templates
+            '("f" "Fleeting notes" entry (file+headline "~/org/fleeting-notes.org" "Inbox") "* %u %? %i" :prepend t)))
 
 
 ;; Roam setup
 (setq org-roam-directory "~/org/deft")
+
+(setq org-roam-capture-templates
+      '(("d" "default" plain #'org-roam-capture--get-point "%?" :file-name "%<%Y%m%d%H%M%S>-${slug}" :head "#+title: ${title}" :unnarrowed t)
+       ("r" "Review and conspecting")
+       ("ra" "Article review" plain #'org-roam-capture--get-point "%?" :file-name "%<%Y%m%d%H%M%S>-${slug}" :head "#+title: ${title}\n#+roam_key: ${link}\n#+roam_tags: review, article\n* Аннотация" :unnarrowed t)
+       ("rt" "Talk review" plain #'org-roam-capture--get-point "%?" :file-name "%<%Y%m%d%H%M%S>-${slug}" :head "#+title: ${title}\n#+roam_key: ${link}\n#+roam_tags: review, talk\n* Аннотация" :unnarrowed t)
+       ("rp" "Podcast review" plain #'org-roam-capture--get-point "%?" :file-name "%<%Y%m%d%H%M%S>-${slug}" :head "#+title: ${title}\n#+roam_key: ${link}\n#+roam_tags: review, podcast\n* Аннотация" :unnarrowed t)
+       ("o" "Original thoughts" plain #'org-roam-capture--get-point "%?" :file-name "%<%Y%m%d%H%M%S>-${slug}" :head "#+title: ${title}\n#+roam_tags: original, thoughts" :unnarrowed t)
+       ("t" "Topic" plain #'org-roam-capture--get-point "%?" :file-name "%<%Y%m%d%H%M%S>-${slug}" :head "#+title: ${title}\n#+roam_tags: topic" :unnarrowed t)
+      ))
+
 
 (defun open-roam-index ()
   (interactive)
