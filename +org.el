@@ -8,6 +8,16 @@
 (setq org-log-done-with-time t)
 (setq org-log-note-clock-out t)
 
+(use-package! org-duration
+  :config
+  (setq org-duration-units   `(("min" . 1)
+   ("h" . 60)
+   ("d" . ,(* 60 8))
+   ("w" . ,(* 60 8 5))
+   ("m" . ,(* 60 8 5 4))
+   ("y" . ,(* 60 8 5 4 11))))
+  (org-duration-set-regexps))
+
 ;; add yandex-tracker link abbrev
 (after! org
   (pushnew! org-link-abbrev-alist
@@ -83,6 +93,15 @@
 ;; deft setup
 (setq deft-directory "~/org/deft")
 
+;; wordcount
+(defun count-words-in-org-subtree ()
+  (interactive)
+  (save-excursion
+    (org-mark-subtree) ;mark the whole subtre
+    (forward-line 1)
+    (let ((nchars (- (mark) (point))))
+      (deactivate-mark) ;clear the region
+      (message "%d" nchars))))
 
 ;; keybindings
 (map! :leader
@@ -100,6 +119,7 @@
       ;; Add sort to kb
       (:prefix ("r" . "refile")
        "s" #'org-sort)
+      (:prefix "s" "c" #'count-words-in-org-subtree)
       ;; rebind m c c to toggle clock instead of canceling
       (:prefix ("c" . "clock")
        "c" #'+org/toggle-clock
