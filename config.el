@@ -83,5 +83,11 @@
 ;; FIXME this is before I figure out how to use .gpg
 (add-to-list 'auth-sources '"~/.authinfo")
 
-;; Remove outdated default 50 max length
+(map! :map magit-mode-map
+      :leader
+      (:prefix "g"
+      :desc "Refresh magit buffer" "r" #'magit-refresh))
+
+
+;; remove outdated default 50 max length
 (setq git-commit-summary-max-length 68)
