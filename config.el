@@ -63,6 +63,8 @@
 
 (load! "+org.el")
 
+(use-package! protobuf-mode)
+
 (setq lsp-haskell-process-path-hie "hie")
 
 ;; Add vimish fast scroll to ivy
