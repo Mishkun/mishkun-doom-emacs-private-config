@@ -88,6 +88,18 @@
       (:prefix "g"
       :desc "Refresh magit buffer" "r" #'magit-refresh))
 
+;; ugly workaround for alt gr inserting of eng layer symbols from russian typography layer
+(map! :i "M-1"   (cmd! (insert "!"))
+      :i "M-2"   (cmd! (insert "@"))
+      :i "M-3"   (cmd! (insert "#"))
+      :i "M-4"   (cmd! (insert "$"))
+      :i "M-5"   (cmd! (insert "%"))
+      :i "M-6"   (cmd! (insert "^"))
+      :i "M-7"   (cmd! (insert "&"))
+      :i "M-8"   (cmd! (insert "*"))
+      :i "M-9"   (cmd! (insert "("))
+      :i "M-0"   (cmd! (insert ")"))
+)
 
 ;; remove outdated default 50 max length
 (setq git-commit-summary-max-length 68)
