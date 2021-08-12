@@ -2,6 +2,7 @@
 
 ;; Org configuration
 
+(setq org-directory "~/org/")
 ;; Mark the completion time of TODOs
 (setq org-log-done 'time)
 ;; and also log time
