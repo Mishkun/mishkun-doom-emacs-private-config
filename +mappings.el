@@ -1,5 +1,7 @@
 ;;; +mappings.el -*- lexical-binding: t; -*-
 
+;; Remove esc key sequence - I mapped ESC to Caps Lock, so I do not need this pathetic feature
+(setq evil-escape-key-sequence nil)
 
 ;; My keyboard has combined SPC and Super in one key, so I keep closing windows
 ;; with Super-W instead of moving them with SPC w l
@@ -26,6 +28,7 @@
       :i "M-9"   (cmd! (insert "("))
       :i "M-0"   (cmd! (insert ")"))
       )
+
 
 ;; Intelij-style duplicate line
 (map!
