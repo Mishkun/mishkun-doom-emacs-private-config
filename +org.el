@@ -94,6 +94,16 @@
 ;; deft setup
 (setq deft-directory "~/org/deft")
 
+;; org-babel timing code blocks
+(progn
+  (defun gjg/time-call (time-call &rest args)
+    (let ((start-time (float-time))
+          (result (apply time-call args)))
+      (message "Function call took %f seconds" (- (float-time) start-time))
+      result))
+  (advice-add 'org-babel-execute-src-block :around #'gjg/time-call))
+
+
 ;; wordcount
 (defun count-words-in-org-subtree ()
   (interactive)
