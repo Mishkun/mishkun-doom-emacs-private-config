@@ -16,5 +16,10 @@
                     )
  )
 
+; open magit buffer in project
+(map! :leader
+      (:prefix "g"
+       :desc "open magit for project" "p" (cmd! (counsel-projectile-switch-project "v"))))
+
 ;; remove outdated default 50 max length
 (setq git-commit-summary-max-length 68)
