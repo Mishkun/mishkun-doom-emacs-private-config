@@ -3,6 +3,7 @@
 ;; Org configuration
 
 (setq org-directory "~/org/")
+(setq org-archive-location "~/org/archive/%s_archive::")
 ;; Mark the completion time of TODOs
 (setq org-log-done 'time)
 ;; and also log time
@@ -103,6 +104,14 @@
       result))
   (advice-add 'org-babel-execute-src-block :around #'gjg/time-call))
 
+;; archive file
+(defun org-archive-file ()
+  (interactive)
+  (let* ((current-file-name (buffer-name (buffer-base-buffer)))
+         (pattern (car (split-string org-archive-location ":")))
+         (new-file-name (format pattern current-file-name)))
+  (doom/move-this-file new-file-name)))
+
 
 ;; wordcount
 (defun count-words-in-org-subtree ()
@@ -131,6 +140,7 @@
       (:prefix ("r" . "refile")
        "s" #'org-sort)
       (:prefix "s" "c" #'count-words-in-org-subtree)
+      "A" #'org-archive-file
       ;; rebind m c c to toggle clock instead of canceling
       (:prefix ("c" . "clock")
        "c" #'+org/toggle-clock
