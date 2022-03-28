@@ -25,6 +25,13 @@
   :recipe (:host github :repo "protocolbuffers/protobuf"
            :files ("editors/protobuf-mode.el")))
 
+(package! org-ql
+  :recipe (:host github :repo "alphapapa/org-ql"
+            :files (:defaults (:exclude "helm-org-ql.el"))))
+
+(package! simpleclip
+  :recipe (:host github :repo "rolandwalker/simpleclip"))
+
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;(package! some-package)
 

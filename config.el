@@ -6,6 +6,7 @@
 (load! "+appearance.el")
 (load! "+magit.el")
 (load! "+mappings.el")
+(load! "+persp.el")
 
 (use-package! protobuf-mode
   :defer-incrementally t)
