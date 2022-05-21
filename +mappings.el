@@ -9,6 +9,20 @@
   :config
   (simpleclip-mode 1))
 
+(after! simpleclip
+  (defun yank-buffer-path ()
+    "Copy the current buffer's path to the kill ring."
+     (interactive)
+     (if-let (filename (or (buffer-file-name (buffer-base-buffer))
+                           (bound-and-true-p list-buffers-directory)))
+         (message "Copied path to clipboard: %s"
+                  (simpleclip-set-contents (abbreviate-file-name filename)))
+       (error "Couldn't find filename in current buffer"))
+))
+
+(map! :after simpleclip :leader
+      (:prefix "f"
+       ("y" #'yank-buffer-path)))
 ;; My keyboard has combined SPC and Super in one key, so I keep closing windows
 ;; with Super-W instead of moving them with SPC w l
 (map! :g "s-w" nil)
@@ -58,3 +72,4 @@
          (unless (bolp) (newline))
          (save-excursion ;; leave point before the duplicate line
            (insert line)))))
+
