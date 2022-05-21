@@ -7,6 +7,7 @@
 (load! "+magit.el")
 (load! "+mappings.el")
 (load! "+persp.el")
+(load! "+publish.el")
 
 (use-package! protobuf-mode
   :defer-incrementally t)
