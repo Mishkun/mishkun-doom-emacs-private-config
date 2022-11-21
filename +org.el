@@ -186,14 +186,15 @@ SCHEDULED: <%<%Y-%m-%d %a>>
       (deactivate-mark) ;clear the region
       (message "%d" nchars))))
 
+
 ;; keybindings
 (map! :leader
       (:prefix "o"
-        :desc "Org agenda overview" "A" (lambda () "Open my configured agenda view" (interactive) (org-agenda nil "O")))
-     (:prefix "n"
-      :desc "Org agenda overview" "A" (lambda () "Open my configured agenda view" (interactive) (org-agenda nil "O"))
-      (:prefix "r"
-       :desc "Roam index" "x" #'open-roam-index)))
+       :desc "Org agenda overview" "A" (lambda () "Open my configured agenda view" (interactive) (org-agenda nil "O")))
+      (:prefix "n"
+       :desc "Org agenda overview" "A" (lambda () "Open my configured agenda view" (interactive) (org-agenda nil "O"))
+       (:prefix "r"
+        :desc "Roam index" "x" #'open-roam-index)))
 
 
 (map! :map org-mode-map

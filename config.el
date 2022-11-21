@@ -8,6 +8,7 @@
 (load! "+mappings.el")
 (load! "+persp.el")
 (load! "+publish.el")
+(load! "+startrek.el")
 
 (use-package! protobuf-mode
   :defer-incrementally t)
